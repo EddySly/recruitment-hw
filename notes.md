@@ -1,0 +1,1 @@
+# Note di progetto
