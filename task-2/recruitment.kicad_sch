@@ -723,6 +723,16 @@
 	)
 	(wire
 		(pts
+			(xy 128.27 16.51) (xy 128.27 21.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "68694944-db86-4f27-b381-943d6414b1b4")
+	)
+	(wire
+		(pts
 			(xy 53.34 33.02) (xy 53.34 38.1)
 		)
 		(stroke
@@ -763,6 +773,16 @@
 	)
 	(wire
 		(pts
+			(xy 128.27 55.88) (xy 128.27 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d78a177c-9a34-4c6b-8a23-982551237d15")
+	)
+	(wire
+		(pts
 			(xy 81.28 45.72) (xy 81.28 53.34)
 		)
 		(stroke
@@ -790,6 +810,16 @@
 			(justify left bottom)
 		)
 		(uuid "32c8b676-0ec3-4e1a-8fa9-83557387d5f5")
+	)
+	(label "HIGH_B"
+		(at 128.27 29.21 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "3a97c92b-dbbd-4d51-b161-f723299abeac")
 	)
 	(label "V_refCurrent"
 		(at 113.03 71.12 270)
@@ -821,8 +851,18 @@
 		)
 		(uuid "92565000-ebd9-413b-93b3-9d9386151551")
 	)
+	(label "HIGH_C"
+		(at 128.27 68.58 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "9d880fe0-67ca-462f-b97b-8d510fcd26b7")
+	)
 	(label "VIN"
-		(at 129.54 36.83 0)
+		(at 120.65 35.56 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -840,6 +880,84 @@
 			(justify left bottom)
 		)
 		(uuid "ea1ebfaa-cbfd-49c2-8524-7668e515968e")
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 128.27 16.51 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "022ebd61-97ac-469f-82d7-912fee224d10")
+		(property "Reference" "#PWR09"
+			(at 128.27 12.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+5V"
+			(at 128.27 21.59 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 128.27 16.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 128.27 16.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 128.27 16.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "83b15f50-0867-40fc-b2f0-cea1b509cccc")
+		)
+		(instances
+			(project "recruitment"
+				(path "/bdc7face-9f7c-4701-80bb-4cc144448db1"
+					(reference "#PWR09")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "power:+5V")
@@ -931,7 +1049,7 @@
 		(dnp no)
 		(uuid "27cac98b-6e1b-48f9-b0df-8831261bb305")
 		(property "Reference" "U1"
-			(at 128.778 16.002 0)
+			(at 119.888 20.066 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -941,7 +1059,7 @@
 			)
 		)
 		(property "Value" "LM393"
-			(at 128.778 18.542 0)
+			(at 119.888 22.606 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1017,9 +1135,9 @@
 		)
 	)
 	(symbol
-		(lib_id "Comparator:LM393")
-		(at 132.08 44.45 0)
-		(unit 3)
+		(lib_id "Device:R")
+		(at 128.27 25.4 0)
+		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1027,9 +1145,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "5ce81184-0d8e-41d9-b7ca-d1c05467f27b")
-		(property "Reference" "U1"
-			(at 130.81 43.1799 0)
+		(uuid "4ce4af48-1e08-4548-a43b-832a11a725f4")
+		(property "Reference" "R6"
+			(at 130.81 24.1299 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1039,8 +1157,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "LM393"
-			(at 130.81 45.7199 0)
+		(property "Value" "10k"
+			(at 130.81 26.6699 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1051,7 +1169,89 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 132.08 44.45 0)
+			(at 126.492 25.4 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 128.27 25.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 128.27 25.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "113ea04e-acb6-409b-9d60-f975e02a1e32")
+		)
+		(pin "1"
+			(uuid "1a04bd31-2078-4741-949f-eddfbb311da9")
+		)
+		(instances
+			(project "recruitment"
+				(path "/bdc7face-9f7c-4701-80bb-4cc144448db1"
+					(reference "R6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Comparator:LM393")
+		(at 123.19 43.18 0)
+		(unit 3)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5ce81184-0d8e-41d9-b7ca-d1c05467f27b")
+		(property "Reference" "U1"
+			(at 121.92 41.9099 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "LM393"
+			(at 121.92 44.4499 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 123.19 43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1062,7 +1262,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm393.pdf"
-			(at 132.08 44.45 0)
+			(at 123.19 43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1073,7 +1273,7 @@
 			)
 		)
 		(property "Description" "Low-Power, Low-Offset Voltage, Dual Comparators, DIP-8/SOIC-8/TO-99-8"
-			(at 132.08 44.45 0)
+			(at 123.19 43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1294,7 +1494,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 129.54 52.07 0)
+		(at 120.65 50.8 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1305,7 +1505,7 @@
 		(fields_autoplaced yes)
 		(uuid "800b4875-02f9-4710-88d1-6dc9ed7dc844")
 		(property "Reference" "#PWR05"
-			(at 129.54 58.42 0)
+			(at 120.65 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1316,7 +1516,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 129.54 57.15 0)
+			(at 120.65 55.88 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1326,7 +1526,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 129.54 52.07 0)
+			(at 120.65 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1337,7 +1537,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 129.54 52.07 0)
+			(at 120.65 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1348,7 +1548,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 129.54 52.07 0)
+			(at 120.65 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1849,6 +2049,166 @@
 			(project "recruitment"
 				(path "/bdc7face-9f7c-4701-80bb-4cc144448db1"
 					(reference "R2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 128.27 64.77 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d1c9dc70-6b3f-428b-8cf2-ba3a667f62dd")
+		(property "Reference" "R5"
+			(at 130.81 63.4999 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 130.81 66.0399 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 126.492 64.77 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 128.27 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 128.27 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "cc446c00-e7a2-4744-b524-c42463c805f2")
+		)
+		(pin "2"
+			(uuid "6c417110-01bb-4c69-ae8f-97c0edf95547")
+		)
+		(instances
+			(project "recruitment"
+				(path "/bdc7face-9f7c-4701-80bb-4cc144448db1"
+					(reference "R5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 128.27 55.88 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e78f522a-6737-4d8b-b23f-e466ff1edadd")
+		(property "Reference" "#PWR08"
+			(at 128.27 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+5V"
+			(at 128.27 60.96 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 128.27 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 128.27 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 128.27 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "6fa6f386-7ef3-4b96-8b53-84bc244f448f")
+		)
+		(instances
+			(project "recruitment"
+				(path "/bdc7face-9f7c-4701-80bb-4cc144448db1"
+					(reference "#PWR08")
 					(unit 1)
 				)
 			)
