@@ -12,3 +12,13 @@ sensore per 30 bar: f1 = 0.5 + 0.04*30 = 1.7V (immagino che se ho 1.7V o piu' di
     -> p = vi con V=600 e W = 5000 => 8.33A questo significa che se scelgo questa come soglia il BSPD puo' intervenire tra 3300 w e 5000w ed è molto meglio
     della prima perche' dato che il sensore non conosce che tensione arriva ora sa che a 8.33A si interviene.
     -> questo si traduce in una differenza di potenziale nell' output del sensore di 2.67V (la quale e' molto vicina allo zero...chissa' se portera' problemi)
+
+2) Sto cercando come comparare i due segnali:
+    -) LM393 texas instruments: supply voltage (range) =0v a Vin-2V che quindi posso tranquillamente alimentare con l'instabile 9-17V (anche nel caso peggiore 9v sono dentro)
+3) Per l'alimentazione ai due sensori va bene un 5V regolato e pure per i riferimenti(partitori per dare soglia ai comparatori).
+
+            SCHEMATICHE KICAD:
+            -)Creati 2 partitori per le soglie dei comparatori con resistenze nell ordine 10^3 per diminuire calore. (V_refBrake, V_refCurrent)
+            -)Aggiunti 2 comparatori TI LM393 per sensori e soglie
+            -)aggiunto alimentatore per i comparatori (va bene ta tensione instabile del supply.)
+
