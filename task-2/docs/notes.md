@@ -40,4 +40,14 @@ Per quanto riguarda i comparatori dopo molte ricerche ho deciso di mettere un pi
             -) differenza principe dall comparatore di pressione e corrente primo : pullup sul sensore per dare 5V al comparatore in caso di sensore staccato.
             -)aggiunti i condensatori all alimentazione.
             -) creati i partitori per le soglie di fail dei sensori alto e basso.
-            
+
+5) se i sensori failano e' un problema perch' tipo se va a massa il sensore della frenata, il mio comparatore u1a è come se non esistesse, ergo anche se frena non lo vede,
+in duale pure se il sensore è staccato quindi mi parte la pullup che mi porta il sensore a 5V e fa segnare high a u1a anche se non sto frenando, ragionamento uguale per quelli
+di corrennte... se i sensori failano sto pensando di aprire il rele' senza nemmeno 500ms di ritardo.
+
+6) prima di capire che fare con i sensori meglio se penso a come fare l'and tra High_b e High_c, dopo un po di ricerche ho notato che potrei mettere in comune i rami dei due comparatori con un pullup che si collega pure al nodo, in questo modo se ad esempio ho corrente alta ma il freno e' okay (quindi and = 0) la tensione cade tutta ai capi di rpullup
+se invece ho entrambi i comparatori alti (and =1), allora sto a 5v sul nodo!
+            SCHEMATICHE KIKAD4:
+            -)wired and tra i due comparatori (sensori funzionanti)
+            -)eliminate le resistenze di pullup r5 e r6 perchè il nodo e' e deve essere in comune.
+            -) cancellate le 2 label highb e highc e fuse in CRITIC_HIGH.
