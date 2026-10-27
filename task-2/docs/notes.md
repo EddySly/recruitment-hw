@@ -51,3 +51,11 @@ se invece ho entrambi i comparatori alti (and =1), allora sto a 5v sul nodo!
             -)wired and tra i due comparatori (sensori funzionanti)
             -)eliminate le resistenze di pullup r5 e r6 perchè il nodo e' e deve essere in comune.
             -) cancellate le 2 label highb e highc e fuse in CRITIC_HIGH.
+
+7) Progettato su carta come aspettare 500ms prima di aprire il rele': carica e carica di un circuito rc! ce bisogno di una resistenza da mettere tra il condensatore e 
+il nodo CRITIC_HIGH perchè senno rischio di fondere i comparatori. -> la soglia massima del comparatore e' di 4mA allora la nuova reistenza deve rispettare la seguente equazione
+0.004 > 5v/rnuova + 5v/10000 => rnuova >  1428 ohm (scelgo 1500). ora trovo un condensatore giusto per 500ms ( 500ms = 11.5k * C) = 43.5 microfarad, che però non esiste in commercio allora ne metto uno da 47 microfarad => t' = 11500 * 0.000047 = 540ms 
+=> V = V0(1 - exp(-(500/540))) = 3.02 V 
+Con questi dati passano 500ms quando il condensatore e' a 3.02v => un altro lm393 che mi compara la tesione ai capi del condensatore e 3.02v.
+            SCHEMATICHE KIKAD5:
+            -)
