@@ -58,4 +58,7 @@ il nodo CRITIC_HIGH perchè senno rischio di fondere i comparatori. -> la soglia
 => V = V0(1 - exp(-(500/540))) = 3.02 V 
 Con questi dati passano 500ms quando il condensatore e' a 3.02v => un altro lm393 che mi compara la tesione ai capi del condensatore e 3.02v.
             SCHEMATICHE KIKAD5:
-            -)
+            -)aggiunnto condensatore di timer
+            -)aggiunta resistenza per non fondere i comparatori in carica.
+            -)aggiunto un alto lm393 per confortare la tensione ai capi del condensatore ad una soglia corrispondente ai 500ms.
+            -)aggiunto partitore di tensione per la soglia del nuovo comparatore.
