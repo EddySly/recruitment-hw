@@ -62,3 +62,16 @@ Con questi dati passano 500ms quando il condensatore e' a 3.02v => un altro lm39
             -)aggiunta resistenza per non fondere i comparatori in carica.
             -)aggiunto un alto lm393 per confortare la tensione ai capi del condensatore ad una soglia corrispondente ai 500ms.
             -)aggiunto partitore di tensione per la soglia del nuovo comparatore.
+
+8) Per dare memoria all apertura dell rele' ho implementato una isteresi basica con spunto texas instuments, differentemente dal documento ho pero' pensato di mettere come input 
+al comparaotre di memoria l'ouput del comapratore di timer e creare quindi un isteresi con l'output di memoria stesso per proparare l'errore, come soglia per questo comparatore 
+di memoria (che alla fine e' un set reset lach) ho scelto per sempicita' un voltaggio basso che gia' avevo, ergo VrefBrake, ho anche notato di stare misurando la tensione 
+sbagliata sul condensatore, quindi ho corretto acciundendo anche gnd (perche' si carica verso gnd appundo). Notare che facendo cosi' sto a tutti gli effetti ache implementando
+il reset a tempo 0.
+            SCHEMATICHE KIKAD6:
+            -)aggiunto blocco di logica per isteresi:
+            -) aggiunte r20 e rlach per evitare scompensi di voltaggio (sono 2 partitori in effetti)
+            -) aggiunto quindi ramo di retroazione
+            -) agginta quindi anche un pullup su u4b.
+            -) corretto il punto di test per il fail doppio (sul condensatore del timer)
+
