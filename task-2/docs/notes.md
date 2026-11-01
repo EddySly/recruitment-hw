@@ -73,5 +73,12 @@ il reset a tempo 0.
             -) aggiunte r20 e rlach per evitare scompensi di voltaggio (sono 2 partitori in effetti)
             -) aggiunto quindi ramo di retroazione
             -) agginta quindi anche un pullup su u4b.
-            -) corretto il punto di test per il fail doppio (sul condensatore del timer)
+            -) corretto il punto di test per il fail doppio (sul condensatore del timer).
+
+9) La memoria progettata la punto precedente la si puo usare anche per dare memoria ai guasti dei sensori! Per fare questo ho pensato di mettere in comure tutte le uscite di questi ultimi comparatori per poi farli convergere nel ramo di retroazione
+mi sono accorto pero' che mettendo in comune e basta e' come fare un and a 4 entrate ed e' l'oppsto di quello che voglio cioe' un or a 4 ingressi... per sistemare questo problema posso introdurre 4 diodi per quindi evitare la messa a terra
+da parte del transistor nel comparatore. Quando sono in conduzione cmq mi arrivano 4.3V dalle pullup passando attraverso il diodo, e successivamente 4.09V passando per la resistenza da 100k che e' sufficente per accendre il comparatore.
+            SCHEMATICHE KIKAD7:
+            -)Messi assieme i blocchi di guasto del segnale con diodi per prevenire la messa a terra (creato or).
+            -)Collegato quest ultimo al pin + del lach
 
