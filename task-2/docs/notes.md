@@ -82,3 +82,7 @@ da parte del transistor nel comparatore. Quando sono in conduzione cmq mi arriva
             -)Messi assieme i blocchi di guasto del segnale con diodi per prevenire la messa a terra (creato or).
             -)Collegato quest ultimo al pin + del lach
 
+10) Il rele' e la sua apertura, devo tenere la bobina alimentata in funzionamento normale in modo che se stacco alimentazione si stacca pure il rele'. allora conviene invertire il segnale di apertura del rele': lo faccio attraverso un npn:
+            SCHEMATICHE KIKAD8:
+            -)Creato un blocco di inversione del segnale di apertura del rele' in questo modo apro quando non riceve tensione il che e' logico con il fatto che devo tenere aperto 
+            anche quando non ha alimentazione la scheda.
