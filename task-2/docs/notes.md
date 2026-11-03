@@ -35,6 +35,7 @@ i sensori e per avere un potenziale fisso di errore (5v). (nel caso che non si �
 Per quanto riguarda le soglie ho scelto 0.4 per la bassa e 4.6 per la alta, non esattamente a zero perchè ad esempio 0.5 per il freno significa semplicemente che 
 non si sta frenando.
 Per quanto riguarda i comparatori dopo molte ricerche ho deciso di mettere un piccolo condensatore all alimentazione per "addolcire" i cambiamenti di stato.
+
             SCHEMATICHE KICAD3:
             -) Aggiunto 2 nuovi comparatori lm393 per testare la veridicità dei sensori
             -) differenza principe dall comparatore di pressione e corrente primo : pullup sul sensore per dare 5V al comparatore in caso di sensore staccato.
@@ -47,6 +48,7 @@ di corrennte... se i sensori failano sto pensando di aprire il rele' senza nemme
 
 6) prima di capire che fare con i sensori meglio se penso a come fare l'and tra High_b e High_c, dopo un po di ricerche ho notato che potrei mettere in comune i rami dei due comparatori con un pullup che si collega pure al nodo, in questo modo se ad esempio ho corrente alta ma il freno e' okay (quindi and = 0) la tensione cade tutta ai capi di rpullup
 se invece ho entrambi i comparatori alti (and =1), allora sto a 5v sul nodo!
+
             SCHEMATICHE KIKAD4:
             -)wired and tra i due comparatori (sensori funzionanti)
             -)eliminate le resistenze di pullup r5 e r6 perchè il nodo e' e deve essere in comune.
@@ -57,6 +59,7 @@ il nodo CRITIC_HIGH perchè senno rischio di fondere i comparatori. -> la soglia
 0.004 > 5v/rnuova + 5v/10000 => rnuova >  1428 ohm (scelgo 1500). ora trovo un condensatore giusto per 500ms ( 500ms = 11.5k * C) = 43.5 microfarad, che però non esiste in commercio allora ne metto uno da 47 microfarad => t' = 11500 * 0.000047 = 540ms 
 => V = V0(1 - exp(-(500/540))) = 3.02 V 
 Con questi dati passano 500ms quando il condensatore e' a 3.02v => un altro lm393 che mi compara la tesione ai capi del condensatore e 3.02v.
+
             SCHEMATICHE KIKAD5:
             -)aggiunnto condensatore di timer
             -)aggiunta resistenza per non fondere i comparatori in carica.
@@ -68,6 +71,7 @@ al comparaotre di memoria l'ouput del comapratore di timer e creare quindi un is
 di memoria (che alla fine e' un set reset lach) ho scelto per sempicita' un voltaggio basso che gia' avevo, ergo VrefBrake, ho anche notato di stare misurando la tensione 
 sbagliata sul condensatore, quindi ho corretto acciundendo anche gnd (perche' si carica verso gnd appundo). Notare che facendo cosi' sto a tutti gli effetti ache implementando
 il reset a tempo 0.
+
             SCHEMATICHE KIKAD6:
             -)aggiunto blocco di logica per isteresi:
             -) aggiunte r20 e rlach per evitare scompensi di voltaggio (sono 2 partitori in effetti)
@@ -78,11 +82,24 @@ il reset a tempo 0.
 9) La memoria progettata la punto precedente la si puo usare anche per dare memoria ai guasti dei sensori! Per fare questo ho pensato di mettere in comure tutte le uscite di questi ultimi comparatori per poi farli convergere nel ramo di retroazione
 mi sono accorto pero' che mettendo in comune e basta e' come fare un and a 4 entrate ed e' l'oppsto di quello che voglio cioe' un or a 4 ingressi... per sistemare questo problema posso introdurre 4 diodi per quindi evitare la messa a terra
 da parte del transistor nel comparatore. Quando sono in conduzione cmq mi arrivano 4.3V dalle pullup passando attraverso il diodo, e successivamente 4.09V passando per la resistenza da 100k che e' sufficente per accendre il comparatore.
+
             SCHEMATICHE KIKAD7:
             -)Messi assieme i blocchi di guasto del segnale con diodi per prevenire la messa a terra (creato or).
             -)Collegato quest ultimo al pin + del lach
 
 10) Il rele' e la sua apertura, devo tenere la bobina alimentata in funzionamento normale in modo che se stacco alimentazione si stacca pure il rele'. allora conviene invertire il segnale di apertura del rele': lo faccio attraverso un npn:
+
             SCHEMATICHE KIKAD8:
             -)Creato un blocco di inversione del segnale di apertura del rele' in questo modo apro quando non riceve tensione il che e' logico con il fatto che devo tenere aperto 
             anche quando non ha alimentazione la scheda.
+
+11) dopo varie richerche ho capito che forse conviene usare dei mosfet, per il semplice fatto che ho bisogno di corrente per la bobina. Facendo del trial and error su
+falstad in conduzione il trandistor che mi comanda la bobina mi da un corrtente sufficente (superiore 80ma), dovrebbe funzionare. collego allora il gate di un secondo mosfet all uscita Rely_open cosi' quando qualcosa va storto questo secondo mosfet il secondo mosfet non conduce e toglie alimentazione alla bobina, pensavo altrenativamente di usare un mosfet di tipo p ma dovrei invertire la logica.
+In oltre grazie al grandissimo electroboom ho aggiunto un diodo di flyback in modo che quando stacco l'alimentazione alla bobina e quindi poichè alla fine è un induttore, la polatita' si inverte e il voltaggio fa una spike che mi friggerebbe il mosfet q2, mettendo pero' quel diodo evito questa problematica 
+
+            SCHEMATICHE KIKAD9:
+            -) Cambiato q1 con un mosfet
+            -)aggiunto il rele' G5LE 5v
+            -) aggiunto Q2 per controllare il rele'
+            -)aggiunto diodo di flyback
+            -) no contact sulla 4 del rele'
