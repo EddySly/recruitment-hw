@@ -5,7 +5,7 @@
 -> per i sensori del freno e corrente devo trovare una soluzione stabile (magari un regolatore 78xx)
 
     -) il sensore del freno e' una retta di equazione f1(x) = 0.5 + 0.04x (in volt), trovo allora il votaggio del
-sensore per 30 bar: f1 = 0.5 + 0.04*30 = 1.7V (immagino che se ho 1.7V o piu' di tensione per 500ms ho il primo seganle per l'and con l'altro sensore??)
+sensore per 30 bar: f1 = 0.5 + 0.04*30 = 1.7V 
 
     -) il sensore della corrente e' pure una retta di eq f2(x) = 2.5 + 0.02x ma conviene prima trovare una soglia di ampere dove fare scattare il sesore...
     -> P = vi => i = p/v => i(400V) = 12.5 A che a 600volt porterebbe al senosre 7500watt ergo e' troppo insensibile.
@@ -55,8 +55,8 @@ se invece ho entrambi i comparatori alti (and =1), allora sto a 5v sul nodo!
             -) cancellate le 2 label highb e highc e fuse in CRITIC_HIGH.
 
 7) Progettato su carta come aspettare 500ms prima di aprire il rele': carica e carica di un circuito rc! ce bisogno di una resistenza da mettere tra il condensatore e 
-il nodo CRITIC_HIGH perchè senno rischio di fondere i comparatori. -> la soglia massima del comparatore e' di 4mA allora la nuova reistenza deve rispettare la seguente equazione
-0.004 > 5v/rnuova + 5v/10000 => rnuova >  1428 ohm (scelgo 1500). ora trovo un condensatore giusto per 500ms ( 500ms = 11.5k * C) = 43.5 microfarad, che però non esiste in commercio allora ne metto uno da 47 microfarad => t' = 11500 * 0.000047 = 540ms 
+il nodo CRITIC_HIGH perche' senno rischio di fondere i comparatori. -> la soglia massima del comparatore e' di 4mA allora la nuova reistenza deve rispettare la seguente equazione
+0.004 > 5v/rnuova + 5v/10000 => rnuova >  1428 ohm (scelgo 1500). ora trovo un condensatore giusto per 500ms ( 500ms = 11.5k * C) = 43.5 microfarad, che pero' non esiste in commercio allora ne metto uno da 47 microfarad => t' = 11500 * 0.000047 = 540ms 
 => V = V0(1 - exp(-(500/540))) = 3.02 V 
 Con questi dati passano 500ms quando il condensatore e' a 3.02v => un altro lm393 che mi compara la tesione ai capi del condensatore e 3.02v.
 
@@ -103,3 +103,11 @@ In oltre grazie al grandissimo electroboom ho aggiunto un diodo di flyback in mo
             -) aggiunto Q2 per controllare il rele'
             -)aggiunto diodo di flyback
             -) no contact sulla 4 del rele'
+
+12) Per quanta riguarda l'alimentazione alla fine ho scelto un regolatore lineare al posto di un buck per limiti di tempo, naturalmente con dissipatore perche' quando sono a 17v devi dissipare 12v di tensione, dando una stima di 120ma nel circuito allora P=VI => 1.44W da dissipare
+aggiunto quindi anche i condensatori in entrata e uscita dal regolatore di tensione come da datasheet del L7805
+
+            Schematiche KIKAD10:
+            -)Aggiunto L7805
+            -)Aggiunti i condensatori di in e out sull regolatore per ripulire i disturbi
+            -)aggiunto attacco fisico (double screw).
